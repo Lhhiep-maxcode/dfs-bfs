@@ -1,0 +1,54 @@
+#include<iostream>
+#include<algorithm>
+#include<cstring>
+#include<map>
+#include<vector>
+using namespace std;
+
+void bfs(int v, vector<vector<int>> &matrix, vector<bool> &check)
+{
+    vector<int> queue;
+    check[v] = true;
+    queue.push_back(v);
+    while(queue.size() != 0)
+    {
+        for(int i = 0; i < matrix[queue[0]].size(); i++)
+        {
+            if(check[matrix[queue[0]][i]] == false)
+            {
+                queue.push_back(matrix[queue[0]][i]);
+                check[matrix[queue[0]][i]] = true;
+            }
+        }
+        cout << queue[0] << " ";
+        queue.erase(queue.begin());
+    }
+}
+
+void input(vector<vector<int>> &matrix)
+{
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++)
+    {
+        int x, y;
+        cin >> x >> y;
+        matrix[x].push_back(y);
+        matrix[y].push_back(x);
+    }
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    vector<bool> check(n + 1, false);
+    vector<vector<int>> matrix(n + 1, vector<int> ());
+    input(matrix);
+    for(int i = 1; i <= n; i++)
+    {
+        sort(matrix[i].begin(), matrix[i].end());
+    }
+    bfs(1, matrix, check);
+	return 0;
+}
