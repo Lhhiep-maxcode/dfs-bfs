@@ -14,3 +14,17 @@ dfs test case:
   1 9
   1 9
   1 8
+bfs test case:
+  10 //num of vertices
+  11 //num of edge
+  1 2
+  1 3
+  1 5
+  1 10
+  2 4
+  3 6
+  3 7
+  3 9
+  5 8
+  6 7
+  8 9
