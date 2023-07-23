@@ -20,7 +20,7 @@ void dfs(int v, vector<vector<int>> &matrix, vector<bool> &check)
 
 int main()
 {
-	vector<bool> check(13, false);
+    vector<bool> check(13, false);
     int n;
     cin >> n;
     vector<vector<int>> matrix(n, vector<int> ());
